@@ -5,12 +5,12 @@ function auth() {
         "NSX": {
           "Credentials": {
             "UserName": userName,
-            "Password": password
+            "PW2": password
           }
         }
       };
 
-    fetch('https://cloud.faxback.net/rest/nsx/Login', {
+    fetch('https://ipfone-nsx.ipfone.com/rest/mqs/NSX/Login?_content=json&id=12731518-1', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -22,10 +22,10 @@ function auth() {
             alert("You are successfully logged in")
             loginId = data.NSX.LoginId;
             alert("loginId: " + loginId)
-            module.exports = {loginId};
-            console.log('Success:', data.NSX.LoginId);
+            window.location.href = "index.html";
         })
         .catch((error) => {
+            alert('Error:', error);
             console.error('Error:', error);
             return;
         });
